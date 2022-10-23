@@ -13,11 +13,14 @@
   "keywords": [
     "vitesse"
   ],
+  "engines": {
+    "node": ">=14.6"
+  },
   "scripts": {
     "build": "vite-ssg build",
     "dev": "vite --port 3333 --open",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix",
     "preview": "vite preview",
     "preview-https": "serve dist",
     "test": "vitest",
