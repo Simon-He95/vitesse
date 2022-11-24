@@ -210,5 +210,7 @@ I have created several Vite apps recently. Setting the configs up is kinda the b
 
 So I made this starter template for myself to create apps more easily, along with some good practices that I have learned from making those apps. It's strongly opinionated, but feel free to tweak it or even maintain your own forks. [(see community maintained variation forks)](#variations)
 
+<a href="https://github.com/Simon-He95/sponsor" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+
 
 <span><div align="center">![sponsors](https://www.hejian.club/images/sponsors.jpg)</div></span>
