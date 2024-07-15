@@ -1,5 +1,5 @@
 import NProgress from 'nprogress'
-import { type UserModule } from '~/types'
+import type { UserModule } from '~/types'
 
 export const install: UserModule = ({ isClient, router }) => {
   if (isClient) {
@@ -7,6 +7,8 @@ export const install: UserModule = ({ isClient, router }) => {
       if (to.path !== from.path)
         NProgress.start()
     })
-    router.afterEach(() => { NProgress.done() })
+    router.afterEach(() => {
+      NProgress.done()
+    })
   }
 }

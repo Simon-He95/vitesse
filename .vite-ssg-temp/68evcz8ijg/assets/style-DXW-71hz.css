@@ -1,0 +1,1058 @@
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+2. [UnoCSS]: allow to override the default border color with css var `--un-default-border-color`
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: var(--un-default-border-color, #e5e7eb); /* 2 */
+}
+
+::before,
+::after {
+  --un-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS.
+*/
+
+html,
+:host {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 4 */
+  font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role='button'] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+Make elements with the HTML hidden attribute stay hidden by default.
+*/
+
+[hidden] {
+  display: none;
+}
+.prose pre:not(.shiki) {
+  padding: 0;
+}
+
+.prose .shiki {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+.prose img {
+  width: 100%;
+}
+
+.shiki-light {
+  background: #f8f8f8 !important;
+}
+
+.shiki-dark {
+  background: #0e0e0e !important;
+}
+
+html.dark .shiki-light {
+  display: none;
+}
+
+html:not(.dark) .shiki-dark {
+  display: none;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html.dark {
+  background: #121212;
+  color-scheme: dark;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: rgb(13, 148, 136);
+  opacity: 0.75;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+*,
+::before,
+::after {
+  --un-rotate: 0;
+  --un-rotate-x: 0;
+  --un-rotate-y: 0;
+  --un-rotate-z: 0;
+  --un-scale-x: 1;
+  --un-scale-y: 1;
+  --un-scale-z: 1;
+  --un-skew-x: 0;
+  --un-skew-y: 0;
+  --un-translate-x: 0;
+  --un-translate-y: 0;
+  --un-translate-z: 0;
+  --un-pan-x: ;
+  --un-pan-y: ;
+  --un-pinch-zoom: ;
+  --un-scroll-snap-strictness: proximity;
+  --un-ordinal: ;
+  --un-slashed-zero: ;
+  --un-numeric-figure: ;
+  --un-numeric-spacing: ;
+  --un-numeric-fraction: ;
+  --un-border-spacing-x: 0;
+  --un-border-spacing-y: 0;
+  --un-ring-offset-shadow: 0 0 rgb(0 0 0 / 0);
+  --un-ring-shadow: 0 0 rgb(0 0 0 / 0);
+  --un-shadow-inset: ;
+  --un-shadow: 0 0 rgb(0 0 0 / 0);
+  --un-ring-inset: ;
+  --un-ring-offset-width: 0px;
+  --un-ring-offset-color: #fff;
+  --un-ring-width: 0px;
+  --un-ring-color: rgb(147 197 253 / 0.5);
+  --un-blur: ;
+  --un-brightness: ;
+  --un-contrast: ;
+  --un-drop-shadow: ;
+  --un-grayscale: ;
+  --un-hue-rotate: ;
+  --un-invert: ;
+  --un-saturate: ;
+  --un-sepia: ;
+  --un-backdrop-blur: ;
+  --un-backdrop-brightness: ;
+  --un-backdrop-contrast: ;
+  --un-backdrop-grayscale: ;
+  --un-backdrop-hue-rotate: ;
+  --un-backdrop-invert: ;
+  --un-backdrop-opacity: ;
+  --un-backdrop-saturate: ;
+  --un-backdrop-sepia: ;
+}
+::backdrop {
+  --un-rotate: 0;
+  --un-rotate-x: 0;
+  --un-rotate-y: 0;
+  --un-rotate-z: 0;
+  --un-scale-x: 1;
+  --un-scale-y: 1;
+  --un-scale-z: 1;
+  --un-skew-x: 0;
+  --un-skew-y: 0;
+  --un-translate-x: 0;
+  --un-translate-y: 0;
+  --un-translate-z: 0;
+  --un-pan-x: ;
+  --un-pan-y: ;
+  --un-pinch-zoom: ;
+  --un-scroll-snap-strictness: proximity;
+  --un-ordinal: ;
+  --un-slashed-zero: ;
+  --un-numeric-figure: ;
+  --un-numeric-spacing: ;
+  --un-numeric-fraction: ;
+  --un-border-spacing-x: 0;
+  --un-border-spacing-y: 0;
+  --un-ring-offset-shadow: 0 0 rgb(0 0 0 / 0);
+  --un-ring-shadow: 0 0 rgb(0 0 0 / 0);
+  --un-shadow-inset: ;
+  --un-shadow: 0 0 rgb(0 0 0 / 0);
+  --un-ring-inset: ;
+  --un-ring-offset-width: 0px;
+  --un-ring-offset-color: #fff;
+  --un-ring-width: 0px;
+  --un-ring-color: rgb(147 197 253 / 0.5);
+  --un-blur: ;
+  --un-brightness: ;
+  --un-contrast: ;
+  --un-drop-shadow: ;
+  --un-grayscale: ;
+  --un-hue-rotate: ;
+  --un-invert: ;
+  --un-saturate: ;
+  --un-sepia: ;
+  --un-backdrop-blur: ;
+  --un-backdrop-brightness: ;
+  --un-backdrop-contrast: ;
+  --un-backdrop-grayscale: ;
+  --un-backdrop-hue-rotate: ;
+  --un-backdrop-invert: ;
+  --un-backdrop-opacity: ;
+  --un-backdrop-saturate: ;
+  --un-backdrop-sepia: ;
+} /* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYthSQBLyM.woff2)
+    format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+} /* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYthqQBA.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+} /* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRR232VGM.woff2)
+    format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+} /* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v15/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW32.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+} /* latin-ext */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gjAW3mujVU2B2G_5x0ujy.woff2)
+    format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+    U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+} /* latin */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.dark [i~='dark\:carbon-moon'] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M13.503 5.414a15.076 15.076 0 0 0 11.593 18.194a11.1 11.1 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1 1 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.07 13.07 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.i-carbon-campsite,
+[i-carbon-campsite=''] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M27.562 26L17.17 8.928l2.366-3.888L17.828 4L16 7.005L14.17 4l-1.708 1.04l2.367 3.888L4.438 26H2v2h28v-2ZM16 10.85L25.22 26H17v-8h-2v8H6.78Z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.i-carbon-dicom-overlay,
+[i-carbon-dicom-overlay=''] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M28 6v20H4V6h24m0-2H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z' fill='currentColor'/%3E%3Cpath d='M6 8h10v2H6z' fill='currentColor'/%3E%3Cpath d='M6 12h10v2H6z' fill='currentColor'/%3E%3Cpath d='M6 16h6v2H6z' fill='currentColor'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.i-carbon-language,
+[i-carbon-language=''] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M18 19h6v2h-6zm0-4h12v2H18zm0-4h12v2H18zm-4 10v-2H9v-2H7v2H2v2h8.215a8.6 8.6 0 0 1-2.216 3.977A9.3 9.3 0 0 1 6.552 23H4.333a10.9 10.9 0 0 0 2.145 3.297A14.7 14.7 0 0 1 3 28.127L3.702 30a16.4 16.4 0 0 0 4.29-2.336A16.5 16.5 0 0 0 12.299 30L13 28.127A14.7 14.7 0 0 1 9.523 26.3a10.3 10.3 0 0 0 2.729-5.3zm-2.833-8h2.166L8.75 2H6.583L2 13h2.166L5 11h5.334zM5.833 9l1.834-4.4L9.5 9z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.i-carbon-logo-github,
+[i-carbon-logo-github=''] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M16 2a14 14 0 0 0-4.43 27.28c.7.13 1-.3 1-.67v-2.38c-3.89.84-4.71-1.88-4.71-1.88a3.7 3.7 0 0 0-1.62-2.05c-1.27-.86.1-.85.1-.85a2.94 2.94 0 0 1 2.14 1.45a3 3 0 0 0 4.08 1.16a2.93 2.93 0 0 1 .88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4 5.4 0 0 1 1.44-3.76a5 5 0 0 1 .14-3.7s1.17-.38 3.85 1.43a13.3 13.3 0 0 1 7 0c2.67-1.81 3.84-1.43 3.84-1.43a5 5 0 0 1 .14 3.7a5.4 5.4 0 0 1 1.44 3.76c0 5.38-3.27 6.56-6.39 6.91a3.33 3.33 0 0 1 .95 2.59v3.84c0 .46.25.81 1 .67A14 14 0 0 0 16 2'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.i-carbon-pedestrian,
+[i-carbon-pedestrian=''] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='m21.677 14l-1.245-3.114A2.99 2.99 0 0 0 17.646 9h-4.092a3 3 0 0 0-1.544.428L7 12.434V18h2v-4.434l3-1.8v11.931l-3.462 5.194L10.202 30L14 24.303V11h3.646a.995.995 0 0 1 .928.629L20.323 16H26v-2Z'/%3E%3Cpath fill='currentColor' d='M17.051 18.316L19 24.162V30h2v-6.162l-2.051-6.154zM16.5 8A3.5 3.5 0 1 1 20 4.5A3.504 3.504 0 0 1 16.5 8m0-5A1.5 1.5 0 1 0 18 4.5A1.5 1.5 0 0 0 16.5 3'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.i-carbon-warning,
+[i-carbon-warning=''] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m0 26a12 12 0 1 1 12-12a12 12 0 0 1-12 12'/%3E%3Cpath fill='currentColor' d='M15 8h2v11h-2zm1 14a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 22'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+[i~='carbon-sun'] {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 32 32' width='1.2em' height='1.2em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6M5.394 6.813L6.81 5.399l3.505 3.506L8.9 10.319zM2 15.005h5v2H2zm3.394 10.193L8.9 21.692l1.414 1.414l-3.505 3.506zM15 25.005h2v5h-2zm6.687-1.9l1.414-1.414l3.506 3.506l-1.414 1.414zm3.313-8.1h5v2h-5zm-3.313-6.101l3.506-3.506l1.414 1.414l-3.506 3.506zM15 2.005h2v5h-2z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1.2em;
+  height: 1.2em;
+}
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where(.not-prose, .not-prose *)) {
+  color: var(--un-prose-headings);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.prose :where(a):not(:where(.not-prose, .not-prose *)) {
+  color: var(--un-prose-links);
+  text-decoration: underline;
+  font-weight: 500;
+}
+.prose :where(a code):not(:where(.not-prose, .not-prose *)) {
+  color: var(--un-prose-links);
+}
+.prose :where(p, ul, ol, pre):not(:where(.not-prose, .not-prose *)) {
+  margin: 1em 0;
+  line-height: 1.75;
+}
+.prose :where(blockquote):not(:where(.not-prose, .not-prose *)) {
+  margin: 1em 0;
+  padding-left: 1em;
+  font-style: italic;
+  border-left: 0.25em solid var(--un-prose-borders);
+}
+.prose :where(h1):not(:where(.not-prose, .not-prose *)) {
+  margin: 1rem 0;
+  font-size: 2.25em;
+}
+.prose :where(h2):not(:where(.not-prose, .not-prose *)) {
+  margin: 1.75em 0 0.5em;
+  font-size: 1.75em;
+}
+.prose :where(h3):not(:where(.not-prose, .not-prose *)) {
+  margin: 1.5em 0 0.5em;
+  font-size: 1.375em;
+}
+.prose :where(h4):not(:where(.not-prose, .not-prose *)) {
+  margin: 1em 0;
+  font-size: 1.125em;
+}
+.prose :where(img, video):not(:where(.not-prose, .not-prose *)) {
+  max-width: 100%;
+}
+.prose :where(figure, picture):not(:where(.not-prose, .not-prose *)) {
+  margin: 1em 0;
+}
+.prose :where(figcaption):not(:where(.not-prose, .not-prose *)) {
+  color: var(--un-prose-captions);
+  font-size: 0.875em;
+}
+.prose :where(code):not(:where(.not-prose, .not-prose *)) {
+  color: var(--un-prose-code);
+  font-size: 0.875em;
+  font-weight: 600;
+  font-family: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}
+.prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *))::before,
+.prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *))::after {
+  content: '`';
+}
+.prose :where(pre):not(:where(.not-prose, .not-prose *)) {
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  border-radius: 0.375rem;
+}
+.prose :where(pre, code):not(:where(.not-prose, .not-prose *)) {
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  background: transparent;
+}
+.prose :where(pre code):not(:where(.not-prose, .not-prose *)) {
+  font-weight: inherit;
+}
+.prose :where(ol, ul):not(:where(.not-prose, .not-prose *)) {
+  padding-left: 1.25em;
+}
+.prose :where(ol):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: decimal;
+}
+.prose :where(ol[type='A']):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: upper-alpha;
+}
+.prose :where(ol[type='a']):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: lower-alpha;
+}
+.prose :where(ol[type='A' s]):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: upper-alpha;
+}
+.prose :where(ol[type='a' s]):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: lower-alpha;
+}
+.prose :where(ol[type='I']):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: upper-roman;
+}
+.prose :where(ol[type='i']):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: lower-roman;
+}
+.prose :where(ol[type='I' s]):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: upper-roman;
+}
+.prose :where(ol[type='i' s]):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: lower-roman;
+}
+.prose :where(ol[type='1']):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: decimal;
+}
+.prose :where(ul):not(:where(.not-prose, .not-prose *)) {
+  list-style-type: disc;
+}
+.prose :where(ol > li):not(:where(.not-prose, .not-prose *))::marker,
+.prose :where(ul > li):not(:where(.not-prose, .not-prose *))::marker,
+.prose :where(summary):not(:where(.not-prose, .not-prose *))::marker {
+  color: var(--un-prose-lists);
+}
+.prose :where(hr):not(:where(.not-prose, .not-prose *)) {
+  margin: 2em 0;
+  border: 1px solid var(--un-prose-hr);
+}
+.prose :where(table):not(:where(.not-prose, .not-prose *)) {
+  display: block;
+  margin: 1em 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+.prose :where(tr):not(:where(.not-prose, .not-prose *)):nth-child(2n) {
+  background: var(--un-prose-bg-soft);
+}
+.prose :where(td, th):not(:where(.not-prose, .not-prose *)) {
+  border: 1px solid var(--un-prose-borders);
+  padding: 0.625em 1em;
+}
+.prose :where(abbr):not(:where(.not-prose, .not-prose *)) {
+  cursor: help;
+}
+.prose :where(kbd):not(:where(.not-prose, .not-prose *)) {
+  color: var(--un-prose-code);
+  border: 1px solid;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875em;
+  border-radius: 0.25rem;
+}
+.prose :where(details):not(:where(.not-prose, .not-prose *)) {
+  margin: 1em 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--un-prose-bg-soft);
+}
+.prose :where(summary):not(:where(.not-prose, .not-prose *)) {
+  cursor: pointer;
+  font-weight: 600;
+}
+.prose {
+  color: var(--un-prose-body);
+  max-width: 65ch;
+}
+.btn,
+[btn=''] {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  --un-bg-opacity: 1;
+  background-color: rgb(15 118 110 / var(--un-bg-opacity)) /* #0f766e */;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  --un-text-opacity: 1;
+  color: rgb(255 255 255 / var(--un-text-opacity)) /* #fff */;
+}
+.icon-btn {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0.75;
+  transition-property: color, background-color, border-color, outline-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 200ms;
+}
+.btn:disabled {
+  cursor: default;
+  --un-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--un-bg-opacity)) /* #4b5563 */;
+  opacity: 0.5;
+}
+[btn='']:disabled {
+  cursor: default;
+  --un-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--un-bg-opacity)) /* #4b5563 */;
+  opacity: 0.5;
+}
+.btn:hover {
+  --un-bg-opacity: 1;
+  background-color: rgb(17 94 89 / var(--un-bg-opacity)) /* #115e59 */;
+}
+[btn='']:hover {
+  --un-bg-opacity: 1;
+  background-color: rgb(17 94 89 / var(--un-bg-opacity)) /* #115e59 */;
+}
+.icon-btn:hover {
+  --un-text-opacity: 1;
+  color: rgb(13 148 136 / var(--un-text-opacity)) /* #0d9488 */;
+  opacity: 1;
+}
+.m-3,
+[m-3=''],
+[m~='\33 '] {
+  margin: 0.75rem;
+}
+.m-auto {
+  margin: auto;
+}
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.-mb-6 {
+  margin-bottom: -1.5rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mt-6,
+[m~='t6'],
+[mt-6=''] {
+  margin-top: 1.5rem;
+}
+[m~='t8'] {
+  margin-top: 2rem;
+}
+[mt-4=''] {
+  margin-top: 1rem;
+}
+.inline-block,
+[inline-block=''] {
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}
+[w~='\32 50px'] {
+  width: 250px;
+}
+[border~='\~'] {
+  border-width: 1px;
+}
+.dark [border~='dark\:gray-700'] {
+  --un-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--un-border-opacity));
+}
+[border~='gray-200'] {
+  --un-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--un-border-opacity));
+}
+.rounded,
+[border~='rounded'],
+[rounded=''] {
+  border-radius: 0.25rem;
+}
+[bg~='transparent'] {
+  background-color: transparent /* transparent */;
+}
+.px-4,
+[p~='x4'] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-10,
+[p~='y10'] {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.py-4,
+[py-4=''] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+[p~='y2'] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.text-center,
+[text~='center'] {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-4xl,
+[text-4xl=''] {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-sm,
+[text-sm=''] {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl,
+[text-xl=''] {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.dark .dark\:text-gray-200,
+.dark [text~='dark\:gray-200'] {
+  --un-text-opacity: 1;
+  color: rgb(229 231 235 / var(--un-text-opacity)) /* #e5e7eb */;
+}
+.text-gray-700 {
+  --un-text-opacity: 1;
+  color: rgb(55 65 81 / var(--un-text-opacity)) /* #374151 */;
+}
+[text~='teal-700'] {
+  --un-text-opacity: 1;
+  color: rgb(15 118 110 / var(--un-text-opacity)) /* #0f766e */;
+}
+.dark .dark\:opacity-50 {
+  opacity: 0.5;
+}
+.opacity-75,
+[opacity-75=''] {
+  opacity: 0.75;
+}
+.\!outline-none {
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+[outline~='none'] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+[outline~='active\:none']:active {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
